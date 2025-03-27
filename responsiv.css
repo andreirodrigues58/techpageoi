@@ -1,0 +1,103 @@
+/* 🔹 MENU RESPONSIVO: EM LINHA NAS TELAS GRANDES, EM COLUNA NAS PEQUENAS */
+@media screen and (max-width: 1170px) {
+    #nav_list {
+        display: flex;
+        flex-direction: column; /* Exibe os itens em coluna */
+        align-items: center; /* Centraliza os itens */
+        gap: 12px; /* Espaço entre os itens */
+        display: none; /* Esconde o menu por padrão */
+    }
+
+    #mobile_menu.active #nav_list {
+        display: flex; /* Exibe o menu quando a classe 'active' estiver presente */
+    }
+
+    .btn-default {
+        display: block; /* Garante que o botão "Inscreva-se" fique abaixo */
+        text-align: center;
+        width: 100%; /* O botão ocupa toda a largura */
+        max-width: 250px; /* Define um tamanho máximo */
+        margin: 10px auto; /* Centraliza o botão */
+    }
+}
+
+/* 🔹 EVITAR QUE O MENU SEJA ESCONDIDO EM TELAS AINDA MENORES */
+@media screen and (max-width: 768px) {
+    #nav_list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #navbar ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .btn-default {
+        width: 80%; /* Botão menor em telas pequenas */
+        max-width: 220px;
+    }
+}
+
+/* 🔹 AJUSTES GERAIS PARA TELAS PEQUENAS */
+@media screen and (max-width: 768px) {
+    #home {
+        flex-direction: column; /* Organiza os itens um abaixo do outro */
+        align-items: center;
+    }
+
+    #cta {
+        width: 100%; /* Ajusta a largura do texto */
+        margin-top: 0; /* Remove o espaçamento */
+    }
+
+    #banner {
+        width: 100%; /* Faz o banner ocupar toda a largura */
+        margin-top: 20px; /* Ajusta a margem superior */
+    }
+
+    #info {
+        flex-direction: column; /* Organiza os itens em coluna */
+        gap: 16px;
+        padding: 10px;
+    }
+
+    .info_2, .palestra_2, .Palestrantes_2 {
+        width: 100%; /* Cards ocupam toda a largura */
+        margin-bottom: 20px;
+        max-width: 100%;
+    }
+
+    .Palestrantes_foto img {
+        width: 80px; /* Ajusta o tamanho da foto */
+        height: 80px;
+        border-radius: 50%; /* Deixa a imagem redonda */
+        border: 3px solid #4497D8; /* Borda azul */
+    }
+
+    #inscricao .inscricao-container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        position: relative;
+        z-index: 15;
+    }
+
+    .ingresso {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .ingresso h4, .ingresso li {
+        font-size: 1rem;
+    }
+
+    input, textarea {
+        position: relative;
+        z-index: 20;
+    }
+}
