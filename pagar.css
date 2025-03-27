@@ -1,0 +1,129 @@
+/* Fundo preto */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #4497D8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Card azul mais largo e menos comprido */
+/* Ajuste do card de pagamento */
+.container {
+    background: #01010E; /* Mantendo o fundo preto */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 320px; /* Reduzindo o tamanho */
+    max-width: 90%; /* Garante responsividade */
+    text-align: center;
+}
+
+/* Ajuste dos inputs */
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Ajuste do botão */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4497D8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 480px) {
+    .container {
+        width: 90%; /* Reduzindo para telas pequenas */
+        max-width: 280px;
+    }
+}
+
+
+/* Títulos */
+h2 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Campos de input */
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 350px; /* Inputs ajustados para um card mais largo */
+}
+
+/* Ajuste para inputs lado a lado */
+.input-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.input-group input {
+    flex: 1;
+}
+
+/* Botão */
+button {
+    background-color: white;
+    color: #01010E;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 350px; /* Fazendo com que o botão se encaixe melhor */
+    margin-top: 5px;
+}
+
+/* Efeito no botão */
+button:hover {
+    background-color: #929698;
+    color: #01010E;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .container {
+        width: 90%; /* Ajuste para telas menores */
+    }
+
+    input, .input-group, button {
+        max-width: 100%;
+    }
+}
+
+#pag :hover {
+    background: #4497D8;
+    text-decoration-color: #01010E;
+    text-align: center;
+}

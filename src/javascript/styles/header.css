@@ -1,0 +1,751 @@
+header { 
+    width: 100%;
+    padding: 28px 8%;
+    background-color: #4497D8;
+    position: relative; /* Ou 'static' se for o padrão */
+    z-index: 1; /* Garante que o header fique acima do conteúdo, se necessário */
+}
+
+#navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav_list {
+    display: flex;
+    list-style: none;
+    gap: 48px;
+}
+
+#nav_logo {
+    font-size: 24px;
+    color: #4497D8;
+    font-weight: bold;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #4497D8;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-item a:hover {
+    color: #4497D8;
+    border-bottom: 3px solid #4497D8;
+}
+
+.nav-item a:active {
+    color: #4497D8;
+}
+
+.btn-default {
+    background-color: #01010E;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-default:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#mobile_btn {
+    display: none;
+}
+
+#mobile_menu {
+    display: none;
+}
+
+@media screen and (max-width: 1170px) {
+    #nav_list,
+    #navbar .btn-default {
+        display: none;
+    }
+
+    #mobile_btn {
+        display: block;
+        border: none;
+        background-color: transparent;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    #mobile_menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mobile_nav_list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 12px 0px;
+    }
+
+    #mobile_nav_list .nav-item {
+        list-style: none;
+        text-align: center;
+    }
+}
+
+/* 🔹 HEADER (MENU FIXO) */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #000; /* Ajuste conforme necessário */
+    z-index: 1000; /* Mantém o header acima de outros elementos */
+}
+
+body {
+    padding-top: 100px; /* Aumente a margem superior do body para garantir que o header não cubra o conteúdo */
+}
+
+/* 🔹 LOGO */
+#nav_logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* 🔹 MENU DESKTOP */
+#nav_list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-item a:hover {
+    color: #4497D8;
+}
+
+/* 🔹 BOTÃO INSCRIÇÃO */
+.btn-default {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #01010E;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-default:hover {
+    background-color: #4497D8;
+}
+
+/* 🔹 MENU MOBILE */
+#mobile_btn {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* 🔹 MENU MOBILE (ESCONDIDO POR PADRÃO) */
+#mobile_menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 5%;
+    background-color: #4497D8;
+    width: 200px;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#mobile_menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-align: center;
+}
+
+#mobile_menu a:hover {
+    background-color: #01010E;
+}
+
+/* 📌 RESPONSIVIDADE – MOSTRAR MENU MOBILE */
+@media (max-width: 768px) {
+    #nav_list {
+        display: none; /* Esconde o menu principal */
+    }
+
+    #mobile_btn {
+        display: block; /* Exibe o botão do menu hambúrguer */
+    }
+}
+
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: calc(100vh - 91px);
+    padding: 0 8%;
+    width: 100%;
+}
+
+#cta {
+    width: 50%; /* Ajuste de largura do texto */
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 5%;
+}
+
+#cta .title {
+    font-size: 4rem;
+    color: var(--color-neutral-1);
+}
+
+#cta .title span {
+    color: var(--color-primary-6);
+}
+
+#cta_button a {
+    text-decoration: none;
+}
+
+#cta_button a:hover {
+    background-color: #000000;
+    text-decoration: none;
+}
+
+#banner {
+    width: 60%; /* Ajuste de largura do banner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    overflow: visible;
+}
+
+.shape {
+    background-color: var(--color-primary-2);
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    border-radius: 40% 30% 0% 20%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+/* Para garantir que o layout fique correto no celular */
+@media screen and (max-width: 768px) {
+    #home {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5%;
+    }
+
+    #cta {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    #banner {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+
+#Sobre-nos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#Sobre-nos h1 {
+    font-size: 2.5rem;
+    color: #01010E;
+    font-weight: bold;
+} 
+
+#info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+    flex-wrap: wrap; /* Para ajustar melhor em telas menores */
+}
+
+.info_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    gap: 18px;
+    width: 30%; /* Reduzi o tamanho para ficar igual aos cards da seção #Palestra */
+    max-width: 320px; /* Define um tamanho máximo */
+    padding: 20px;
+    background-color: #4497D8;
+    box-shadow: 0px 0px 12px 4px #01010E;
+    position: relative;
+    overflow: hidden;
+    color: #01010E;
+    font-weight: bold;
+}
+
+.info_3 {
+    position: absolute;
+    background-color: var(--color-primary-6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.563rem;
+    color: var(--color-primary-1);
+    width: 70px;
+    height: 70px;
+    right: -10px;
+    top: -10px;
+    border-radius: 0px 37.5px 0px 42.5px;
+}
+
+.info_descricao {
+    color: #01010E;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* Fundo preto para a seção principal */
+#Palestra {
+    background-color: #01010E; /* Fundo preto para a seção inteira */
+    padding: 20px; /* Adiciona um pouco de espaçamento ao redor da seção */
+}
+
+/* Estilos para o título principal */
+.titulo-principal {
+    text-align: center;
+    font-size: 2.5rem; /* Ajuste conforme necessário */
+    margin-top: 20px; /* Espaço acima do título */
+    margin-bottom: 40px; /* Espaço abaixo do título */
+    color:  #4497D8; /* Título em branco para contraste */
+}
+
+/* Estilos para a seção Palestra e os cards */
+#palestra {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Estilos para os cards */
+.palestra_2 {
+    width: 30%; /* Ajuste o tamanho do card conforme necessário */
+    background-color: #4497D8; /* Cor de fundo dos cards */
+    color: #01010E; /* Texto preto para contraste */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 12px 4px #929698;
+    position: relative;
+    overflow: hidden;
+    color: #929698;
+    font-weight: bold;
+}
+
+/* Imagens dos cards */
+.dish-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Títulos dos cards */
+.palestra_titulo {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color:#01010E; /* Cor mais clara para a descrição */
+    ; /* Título do card em azul */
+}
+
+/* Descrição dos cards */
+.palestra_descricao {
+    font-size: 1rem;
+    color:#01010E; /* Cor mais clara para a descrição */
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Fundo azul para a seção principal */
+#Palestrantes {
+    background-color: #4497D8; /* Fundo preto para a seção inteira */
+    padding: 20px; /* Adiciona um pouco de espaçamento ao redor da seção */
+}
+
+/* Estilos para o título principal */
+.palestra_titulo-principal {
+    text-align: center;
+    font-size: 2.5rem; /* Ajuste conforme necessário */
+    margin-top: 20px; /* Espaço acima do título */
+    margin-bottom: 40px; /* Espaço abaixo do título */
+    color: #01010E; /* Título em branco para contraste */
+}
+
+/* Estilos para a seção Palestra e os cards */
+#Palestrantes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Estilos para os cards */
+.Palestrantes_2 {
+    width: 30%; /* Ajuste o tamanho do card conforme necessário */
+    background-color: #01010E; /* Cor de fundo dos cards */
+    color: #4497D8; /* Texto preto para contraste */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 12px 4px #929698;
+    position: relative;
+    overflow: hidden;
+    color: #929698;
+    font-weight: bold;
+}
+
+/* Imagens dos cards */
+.dish-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Títulos dos cards */
+.Palestrantes_titulo {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color:#4497D8; /* Cor mais clara para a descrição */
+    ; /* Título do card em azul */
+}
+
+/* Descrição dos cards */
+.Palestrantes_descricao {
+    font-size: 1rem;
+    color:#4497D8; /* Cor mais clara para a descrição */
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Mantém o fundo preto para a seção Palestra */
+#Palestra {
+    background-color: #01010E;
+    padding: 20px;
+    position: relative;
+}
+
+/* Mantém o fundo preto para a seção Palestra */
+#Palestra {
+    background-color: #01010E;
+    padding: 20px;
+    position: relative;
+}
+
+/* Gradiente menor para suavizar a transição */
+#Palestra::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px; /* Agora bem menor para não interferir nos cards */
+    background: linear-gradient(to bottom, #01010E, #4497D8);
+    pointer-events: none; /* Evita que o gradiente interfira na interação dos elementos */
+}
+
+/* Mantém o fundo azul para a seção Palestrantes */
+#Palestrantes {
+    background-color: #4497D8;
+    padding: 20px;
+    position: relative;
+}
+
+#nomepalestrantes{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color:#4497D8; /* Cor mais clara para a descrição */
+    ; /* Título do card em azul */
+}
+
+/* Estilo para a foto do palestrante */
+.Palestrantes_foto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.Palestrantes_foto img {
+    width: 100px; /* Tamanho da foto */
+    height: 100px;
+    border-radius: 50%; /* Deixa a foto redonda */
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
+    border: 3px solid #4497D8; /* Adiciona uma borda azul para combinar com o tema */
+}
+
+
+#inscricao {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.inscricao-container {
+    margin-bottom: 0 !important;
+}
+
+#inscricao .ingresso {
+    margin-bottom: 0 !important;
+}
+
+.investimento-texto {
+    flex: 1;
+    color: #01010E;
+}
+
+#tipos_ingresso {
+    background-color: #01010E; /* Cor de fundo principal */
+    color: #fff; /* Texto branco para contraste */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#tipos_ingresso h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.ingressos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ingresso {
+    background-color: #4497D8; /* Azul */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px 2px rgba(255, 255, 255, 0.2);
+    width: 300px;
+    max-width: 90%;
+    color: #ffffff; /* Texto escuro para contraste */
+}
+
+.ingresso h4 {
+    color: #ffffff; /* Cor do título */
+    font-size: 1.5rem;
+}
+
+.ingresso ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ingresso li {
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+#inscricao_cert { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante centralização vertical */
+    text-align: center;
+    background: linear-gradient(to bottom, #01010E 0%, #4497D8 5%); /* Gradiente muito pequeno na parte superior */
+    pointer-events: none; /* Evita que o gradiente interfira na interação dos elementos */
+}
+
+
+
+.inscricao-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input, form select {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-default {
+    margin-top: 15px;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-default:hover {
+    background-color: #0056b3;
+}
+
+.inscricao-card {
+    background-color: #01010E;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px 4px #929698;
+    color: white;
+    width: 350px;
+}
+
+.inscricao-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.inscricao-card label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.inscricao-card input,
+.inscricao-card select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.inscricao-card select:hover {
+    background-color: white;
+}
+
+.inscricao-card button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #4497D8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.inscricao-card button:hover {
+    background-color: #367ab8;
+}
+
+/* Aumenta o tamanho da fonte dos títulos principais */
+h3, h2 {
+    font-size: 2rem; /* Ajuste conforme necessário */
+    font-weight: bold;
+}
+
+/* Remove a bolinha branca dos itens da lista */
+.ingressos ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Deixa todo o texto dentro do card de ingressos em negrito */
+.ingresso h4,
+.ingresso ul li {
+    font-weight: bold;
+}
+
+.ingresso h4{
+    text-align: center;
+}
+
+.descricao_invest{
+    font-weight: bold;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+section {
+    padding: 28px 8%;
+}
+
+.btn-default {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4497D8;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 600;
+    box-shadow: 0px 0px 10px 2px rgba(146, 150, 152, 0.5);
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+
+.btn-default:hover {
+    background-color: #000000;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Garantir que os campos estão visíveis e podem ser clicados */
+input, select, button {
+    pointer-events: auto; /* Garante que os campos possam ser clicados */
+    z-index: 1; /* Garante que os campos estejam visíveis em relação a outros elementos */
+}
+
+/* Se houver alguma sobreposição, garanta que os campos estão acima */
+.inscricao-card {
+    position: relative;
+    z-index: 10; /* Garantir que o cartão de inscrição esteja acima de outros elementos */
+}

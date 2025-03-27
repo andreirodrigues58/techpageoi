@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - TechFuture Summit 2025</title>
+    <link rel="stylesheet" href="pagar.css">
+    <link rel="stylesheet" href="global_styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>💰 Valores dos Ingressos</h2>
+        <p>🎟 <b>Ingresso Online:</b> R$ 99,90</p>
+        <p>🎟 <b>Ingresso Presencial:</b> R$ 249,90</p>
+<br>
+        <h2>💳 Formas de Pagamento:</h2>
+        <p>✔ PIX</p>
+        <p>✔ Cartão de Crédito</p>
+        <p>✔ Cartão de Débito</p>
+        <br>
+
+        <form id="paymentForm">
+            <input type="text" id="nome" placeholder="Nome no Cartão" required>
+            <input type="text" id="numeroCartao" placeholder="Número do Cartão" required>
+            <div class="input-group">
+                <input type="text" id="validade" placeholder="Validade (MM/AA)" required>
+                <input type="text" id="cvv" placeholder="CVV" required>
+            </div>
+            <button type="submit" id="pag">Finalizar Pagamento</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("paymentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+    
+            // Pegando os valores dos inputs
+            let nome = document.getElementById("nome").value.trim();
+            let numeroCartao = document.getElementById("numeroCartao").value.trim();
+            let validade = document.getElementById("validade").value.trim();
+            let cvv = document.getElementById("cvv").value.trim();
+    
+            // Expressão regular para validar o número do cartão (13 a 19 dígitos numéricos)
+            let cartaoRegex = /^\d{13,19}$/;
+            // Expressão regular para validar a data de validade no formato MM/AA (4 dígitos)
+            let validadeRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+            // Expressão regular para validar CVV (exatamente 3 dígitos)
+            let cvvRegex = /^\d{3}$/;
+    
+            // Verificando se os campos estão preenchidos corretamente
+            if (nome === "" || numeroCartao === "" || validade === "" || cvv === "") {
+                alert("Por favor, preencha todos os campos para continuar.");
+                return;
+            }
+    
+            // Validando o número do cartão
+            if (!cartaoRegex.test(numeroCartao.replace(/\s/g, ""))) {
+                alert("Número de cartão inválido. O número do cartão deve ter entre 13 e 19 dígitos.");
+                return;
+            }
+    
+            // Validando a validade no formato MM/AA
+            if (!validadeRegex.test(validade)) {
+                alert("Data de validade inválida. Use o formato MM/AA.");
+                return;
+            }
+    
+            // Validando o CVV (deve ter exatamente 3 dígitos)
+            if (!cvvRegex.test(cvv)) {
+                alert("CVV inválido. O CVV deve ter exatamente 3 dígitos.");
+                return;
+            }
+    
+            // Se todos os campos estiverem corretos, redireciona para a página de confirmação
+            window.location.href = "obrigado.html";
+        });
+    
+        // Máscara para a validade (MM/AA)
+        document.getElementById("validade").addEventListener("input", function(e) {
+            let validade = e.target.value;
+    
+            // Adiciona a barra após dois números
+            if (validade.length === 2 && !validade.includes("/")) {
+                e.target.value = validade + "/";
+            }
+    
+            // Garante que o formato MM/AA seja mantido
+            if (validade.length > 5) {
+                e.target.value = validade.substring(0, 5); // Limita a 5 caracteres (MM/AA)
+            }
+        });
+    
+        // Máscara para o CVV (somente 3 dígitos)
+        document.getElementById("cvv").addEventListener("input", function(e) {
+            let cvv = e.target.value;
+    
+            // Garante que o CVV tenha no máximo 3 dígitos
+            if (cvv.length > 3) {
+                e.target.value = cvv.substring(0, 3);
+            }
+        });
+    
+        // Máscara para o número do cartão (adiciona espaço a cada 4 dígitos)
+        document.getElementById("numeroCartao").addEventListener("input", function(e) {
+            let numeroCartao = e.target.value.replace(/\D/g, ''); // Remove todos os não-dígitos
+            let numeroFormatado = '';
+    
+            // Adiciona espaços a cada 4 dígitos
+            for (let i = 0; i < numeroCartao.length; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    numeroFormatado += ' ';
+                }
+                numeroFormatado += numeroCartao[i];
+            }
+    
+            // Atualiza o valor do campo
+            e.target.value = numeroFormatado;
+    
+            // Garante que o número do cartão tenha entre 13 e 19 dígitos
+            if (numeroCartao.length > 19) {
+                e.target.value = numeroFormatado.substring(0, 19); // Limita a 19 dígitos
+            }
+        });
+    </script>
+    
+    
+    
+    
+    
+</body>
+</html>
+
+
+
